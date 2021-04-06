@@ -1,4 +1,4 @@
-console.clear()
+console.clear();
 /* TS Algorithms Lab */
 
 /* --- Problem #1 - variable types --- */
@@ -6,18 +6,41 @@ console.clear()
 // example outputs:
 // console.log(numberString) => '7'
 // console.log(realNumber) => 32
+let numberString: string = "42";
+let realNumber: number = 7;
+let x: string = realNumber.toString();
+realNumber = parseInt(numberString);
+numberString = x;
+// console.log(`Number String: ${numberString} & Real Number: ${realNumber}`);
 
-let numberString: string = '42'
-let realNumber: number = 7
-
-// todo: swap the values in the varaibles and log the results
+///////////////////////////////////////////////////////////
 
 /* --- Problem #2 - function and mixed array type --- */
-// 1. create an array type that is a mix of strings of numbers and actual numbers
-// ex: [10, '34', 3, '17']
-// 2. write a function that accepts an array as a parameter, loops over it and converts all the 
+// 1. create an array type that is a mix
+// of strings of numbers and actual numbers
+
+let arrOne: (string | number)[] = ["88", 7, "70", "2", -89];
+// console.log(arrOne);
+
+////////////////////////////////////////////////////////////
+
+// 2. write a function that accepts an array as
+//a parameter, loops over it and converts all the
 // strings to numbers. the function should return a new array of only numbers
 // ex: stringToNum([10, '34', 3, '17']) => [10, 34, 3, 17]
+
+let arrTwo: (string | number)[] = ["90", "21", "-5", 4, 45];
+console.log(arrTwo);
+const stringToNum = (arr: (number | string)[]): number[] => {
+  return arr.map((element) => Number(element));
+};
+console.log(`Converted: ${stringToNum(arrTwo)}`);
+
+// function accepts(numbers: string[]): void {
+//   let map = numbers.map((x) => x);
+//   console.log(map);
+// }
+// console.log(accepts(arrTwo));
 
 // Todo write the mixed array of strings and numbers
 
@@ -47,17 +70,17 @@ let realNumber: number = 7
 // the area of a circle is found by multiplying pi by the radius squared
 
 interface Square {
-    kind: 'square',
-    width: number,
+  kind: "square";
+  width: number;
 }
 interface Rectangle {
-    kind: 'rectangle',
-    width: number,
-    height: number,
+  kind: "rectangle";
+  width: number;
+  height: number;
 }
 interface Circle {
-    kind: 'circle',
-    radius: number,
+  kind: "circle";
+  radius: number;
 }
 
 // Todo - Create union type here
